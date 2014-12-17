@@ -23,5 +23,8 @@ def db_for_file(audio_path):
     return np.mean(amplitude_for_file(audio_path))
 
 
+def std_for_file(audio_path):
+    return np.std(amplitude_for_file(audio_path))
+
 db_offset = CALIBRATE_DB - db_for_file(CALIBRATE_PATH)
-print db_for_file(ANALYZE_PATH) + db_offset
+print str(db_for_file(ANALYZE_PATH) + db_offset) + ',' + str(std_for_file(ANALYZE_PATH))
